@@ -57,7 +57,8 @@ var app = new Vue(
                 "img/django-unchained.jpg",
                 "img/once-upon-a-time-in-hollywood.jpg",
             ],            
-            sliderIndex: 0
+            sliderIndex: 0,
+            carousel: ''
         },
         methods: {
             prevImg: function() {
@@ -65,22 +66,24 @@ var app = new Vue(
                 if (this.sliderIndex < 0) {
                     this.sliderIndex = this.imgUrls.length -1; 
                 }
+                clearInterval(this.carousel);
             }, 
             nextImg: function() {
                 this.sliderIndex++;
                 if (this.sliderIndex == this.imgUrls.length) {
                     this.sliderIndex = 0; 
                 }
+                clearInterval(this.carousel);
             } 
         },
         created: function () {
-            setInterval (() => {
-                console.log(this) ;
+            var carousel = setInterval (() => {
                 this.sliderIndex++;
                 if (this.sliderIndex == this.imgUrls.length) {
                     this.sliderIndex = 0; 
-                } 
+                }
             }, 3000);
+            this.carousel = carousel;
         }
     }
 ); 
