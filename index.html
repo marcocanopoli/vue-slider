@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        <title>Vue Slider</title>
+    </head>
+    <body>
+        <main>
+            <div id="slider">
+                <div class="arrow-box">
+                    <i @click="prevImg" class="fas fa-angle-left"></i>
+                </div>
+                <img  class= "slider-img" :src="imgUrls[sliderIndex]" alt="slider img">
+                <div class="arrow-box">
+                    <i @click="nextImg"class="fas fa-angle-right"></i>
+                </div>
+                <nav>
+                    <i v-for="(img, i) in imgUrls" class="fa-circle" :class="(i == sliderIndex) ? 'fas' : 'far'" @click="sliderIndex = i"></i>
+                </nav>
+            </div>
+        </main>
+        <script src="js/script.js"></script>
+    </body>
+</html>
