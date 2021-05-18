@@ -12,10 +12,24 @@ main {
     background-color: thistle;
 }
 
+h1 {
+    margin-right: 96px;
+}
+h2 {
+    margin-left: 96px;
+}
 #slider {
-    display: flex;
-    position: relative;
     margin: auto;   
+}
+.slider-box {
+    display: flex;
+    position: relative;  
+}
+.movie-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
 }
 
 .slider-img {
@@ -23,6 +37,8 @@ main {
     height: 540px;
     object-fit: cover;
     object-position: center;
+    border-radius: 30px;
+    overflow: hidden;
 }
 
 .arrow-box {
@@ -47,4 +63,7 @@ main {
 #slider nav i { 
     padding: 0 5px;
     font-size: 20px;
+}
+#slider nav i.fas { 
+    color: thistle;
 }

@@ -12,16 +12,25 @@
     <body>
         <main>
             <div id="slider">
-                <div class="arrow-box">
-                    <i @click="prevImg" class="fas fa-angle-left"></i>
+                <div class="movie-title">
+                    <h2>Director: {{ movies[sliderIndex].director }}</h2>
+                    <h1>Movie: {{ movies[sliderIndex].title }}</h1>
                 </div>
-                <img  class= "slider-img" :src="imgUrls[sliderIndex]" alt="slider img">
-                <div class="arrow-box">
-                    <i @click="nextImg"class="fas fa-angle-right"></i>
+                <div class="slider-box">
+                    <div class="arrow-box">
+                        <i @click="prevImg" class="fas fa-angle-left"></i>
+                    </div>
+                    <img class= "slider-img" :src="movies[sliderIndex].url" alt="slider img">
+                    <div class="arrow-box">
+                        <i @click="nextImg"class="fas fa-angle-right"></i>
+                    </div>
+                    <nav>
+                        <i  v-for="(img, i) in movies" 
+                            class="fa-circle" 
+                            :class="(i == sliderIndex) ? 'fas' : 'far'" @click="sliderIndex = i">
+                        </i>
+                    </nav>
                 </div>
-                <nav>
-                    <i v-for="(img, i) in imgUrls" class="fa-circle" :class="(i == sliderIndex) ? 'fas' : 'far'" @click="sliderIndex = i"></i>
-                </nav>
             </div>
         </main>
         <script src="js/script.js"></script>
